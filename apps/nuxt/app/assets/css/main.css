@@ -1,0 +1,4 @@
+@import "tailwindcss";
+
+/* Layers live outside the Vite root (`app/`), so automatic source detection misses them. */
+@source "../../../layers";
