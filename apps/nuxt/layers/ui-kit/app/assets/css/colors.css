@@ -1,0 +1,9 @@
+/* Color tokens. Components read them as `var(--…)` and never use raw colors. */
+:root {
+  --text-color: oklch(21% 0.034 264.665deg);
+  --accent-color: oklch(54.6% 0.245 262.881deg);
+  --accent-pressed-color: oklch(48.8% 0.243 264.376deg);
+  --accent-contrast-color: oklch(100% 0 0deg);
+  --secondary-fill-color: oklch(96.7% 0.003 264.542deg);
+  --secondary-fill-pressed-color: oklch(92.8% 0.006 264.531deg);
+}

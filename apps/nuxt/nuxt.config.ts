@@ -31,6 +31,19 @@ export default defineNuxtConfig({
   },
   appId: 'repo-nuxt',
   modules: ['@nuxt/eslint', '@nuxtjs/i18n'],
+  app: {
+    head: {
+      style: [
+        {
+          // Cascade layer order is set by the first stylesheet mentioning a layer. In dev a
+          // component's stylesheet may come before Tailwind's, putting `components` before
+          // `base`, so the order is declared ahead of all stylesheets.
+          innerHTML: '@layer theme, base, components, utilities;',
+          tagPriority: 'critical',
+        },
+      ],
+    },
+  },
   components: [
     {
       path: '~/components',
