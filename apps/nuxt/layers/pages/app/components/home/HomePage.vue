@@ -2,27 +2,27 @@
 const { t } = useI18n({
   messages: {
     en: {
-      title: 'Home',
-      welcome: {
-        heading: 'Welcome',
-        description: 'This is the home page of the starter.',
-      },
       counter: {
         clicked: 'Clicked {count} times',
         increment: 'Click me',
         reset: 'Reset',
       },
+      title: 'Home',
+      welcome: {
+        description: 'This is the home page of the starter.',
+        heading: 'Welcome',
+      },
     },
     ru: {
-      title: 'Главная',
-      welcome: {
-        heading: 'Добро пожаловать',
-        description: 'Это главная страница стартера.',
-      },
       counter: {
         clicked: 'Нажатий: {count}',
         increment: 'Нажми меня',
         reset: 'Сбросить',
+      },
+      title: 'Главная',
+      welcome: {
+        description: 'Это главная страница стартера.',
+        heading: 'Добро пожаловать',
       },
     },
   },

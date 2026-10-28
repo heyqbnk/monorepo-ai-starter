@@ -29,8 +29,6 @@ export default defineNuxtConfig({
       },
     },
   },
-  appId: 'repo-nuxt',
-  modules: ['@nuxt/eslint', '@nuxtjs/i18n'],
   app: {
     head: {
       style: [
@@ -44,47 +42,49 @@ export default defineNuxtConfig({
       ],
     },
   },
+  appId: 'repo-nuxt',
+  compatibilityDate: '2026-10-25',
   components: [
     {
-      path: '~/components',
-      pathPrefix: false,
       extensions: ['.vue'],
       // Private helpers (`_components/`, `_Foo.vue`) stay local to their folder.
       ignore: ['**/_/**', '**/_*'],
+      path: '~/components',
+      pathPrefix: false,
     },
   ],
+  css: ['~/assets/css/main.css'],
   devtools: { enabled: true },
   experimental: {
     // Disables loading `_payload.json` between navigations. The file is only useful
     // with a server rendering pages on demand.
     payloadExtraction: false,
   },
-  css: ['~/assets/css/main.css'],
-  compatibilityDate: '2026-10-25',
-  vite: {
-    plugins: [tailwindcss()],
-    build: {
-      // Resolved from .browserslistrc.
-      target: browserslistToEsbuild(undefined, { path: import.meta.dirname }),
-    },
+  // Messages live in components (`useI18n({ messages })`), so there are no locale files.
+  i18n: {
+    defaultLocale: 'en',
+    locales: [
+      { code: 'en', language: 'en-US' },
+      { code: 'ru', language: 'ru-RU' },
+    ],
+    strategy: 'no_prefix',
   },
+  modules: ['@nuxt/eslint', '@nuxtjs/i18n'],
   typescript: {
-    // Type checking runs on `nuxt build` only, so it doesn't slow down `nuxt dev`.
-    typeCheck: 'build',
     appTsConfig: {
       vueCompilerOptions: {
         // Type checking fails on template tags that resolve to no known component.
         checkUnknownComponents: true,
       },
     },
+    // Type checking runs on `nuxt build` only, so it doesn't slow down `nuxt dev`.
+    typeCheck: 'build',
   },
-  i18n: {
-    // Messages live in components (`useI18n({ messages })`), so there are no locale files.
-    locales: [
-      { code: 'en', language: 'en-US' },
-      { code: 'ru', language: 'ru-RU' },
-    ],
-    defaultLocale: 'en',
-    strategy: 'no_prefix',
+  vite: {
+    build: {
+      // Resolved from .browserslistrc.
+      target: browserslistToEsbuild(undefined, { path: import.meta.dirname }),
+    },
+    plugins: [tailwindcss()],
   },
 });

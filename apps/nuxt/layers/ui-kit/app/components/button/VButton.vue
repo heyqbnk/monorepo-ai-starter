@@ -3,8 +3,8 @@ type ButtonVariant = 'primary' | 'secondary';
 type ButtonSize = 'small' | 'medium' | 'large';
 
 const {
-  variant = 'primary',
   size = 'medium',
+  variant = 'primary',
 } = defineProps<{
   variant?: ButtonVariant;
   size?: ButtonSize;
@@ -23,9 +23,9 @@ const variantClasses: Record<ButtonVariant, string | undefined> = {
 };
 
 const sizeClasses: Record<ButtonSize, string | undefined> = {
-  small: cn.rootSmall,
-  medium: cn.rootMedium,
   large: cn.rootLarge,
+  medium: cn.rootMedium,
+  small: cn.rootSmall,
 };
 </script>
 

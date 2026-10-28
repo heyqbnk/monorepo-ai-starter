@@ -8,17 +8,17 @@ export default defineNuxtConfig({
   $meta: {
     name: 'ui-kit',
   },
-  components: [
-    {
-      path: resolve('app/components'),
-      pathPrefix: false,
-      extensions: ['.vue'],
-      // Private helpers (`_components/`, `_Foo.vue`) stay local to their folder.
-      ignore: ['**/_/**', '**/_*'],
-    },
-  ],
-  css: [resolve('app/assets/css/colors.css')],
   alias: {
     '~ui-kit': resolve('app'),
   },
+  components: [
+    {
+      extensions: ['.vue'],
+      // Private helpers (`_components/`, `_Foo.vue`) stay local to their folder.
+      ignore: ['**/_/**', '**/_*'],
+      path: resolve('app/components'),
+      pathPrefix: false,
+    },
+  ],
+  css: [resolve('app/assets/css/colors.css')],
 });

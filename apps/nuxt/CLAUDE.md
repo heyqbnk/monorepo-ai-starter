@@ -76,6 +76,11 @@ composables, stores, auto-imports). Nuxt сам регистрирует каж�
   повторяет секцию `components` из `layers/ui-kit/nuxt.config.ts`.
 - **Включён `checkUnknownComponents`** (`vueCompilerOptions` в `nuxt.config.ts`). Неразрешённый
   тег в шаблоне — ошибка `pnpm typecheck`, а не custom element.
+- **Ключи объектов — по алфавиту**, включая деструктуризацию и сообщения i18n. Это проверяет
+  `perfectionist/sort-objects` в `pnpm lint`, а `pnpm lint:fix` расставляет ключи сам. Пустая
+  строка начинает новую группу, которая сортируется отдельно: так можно сохранить группировку
+  по смыслу. Комментарий над ключом переезжает вместе с ним, поэтому комментарий, который
+  описывает целый блок, пиши над ключом этого блока, а не над первым ключом внутри.
 - **i18n живёт в компоненте**, а не в файлах локалей:
   ```ts
   const { t } = useI18n({
@@ -177,8 +182,8 @@ composables, stores, auto-imports). Nuxt сам регистрирует каж�
   const cn = useCssModule('cn');
 
   const variantClasses: Record<ButtonVariant, string | undefined> = {
-    small: cn.rootSmall,
     large: cn.rootLarge,
+    small: cn.rootSmall,
   };
   ```
   ```vue
