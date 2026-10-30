@@ -1,6 +1,6 @@
 # nuxt
 
-Nuxt-приложение. Общие для репозитория правила — в корневом CLAUDE.md.
+Nuxt-приложение. Общие для репозитория правила — в корневом AGENTS.md.
 
 ## Команды
 
@@ -55,7 +55,7 @@ composables, stores, auto-imports). Nuxt сам регистрирует каж�
 ## Страницы
 
 Все страницы живут в слое `pages`, по директории на страницу в `layers/pages/app/components`.
-Правила (регистрация, nav params, навигация, preload) — в `layers/pages/CLAUDE.md`.
+Правила (регистрация, nav params, навигация, preload) — в `layers/pages/AGENTS.md`.
 
 Эти правила действуют везде, а не только внутри слоя `pages`:
 
